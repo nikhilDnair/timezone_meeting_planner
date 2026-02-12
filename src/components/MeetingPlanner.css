@@ -1,0 +1,442 @@
+.meeting-planner {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.meeting-planner h1 {
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* City Search */
+.city-search-container {
+  margin-bottom: 30px;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.city-search-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.city-search-input:focus {
+  border-color: #667eea;
+}
+
+.city-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.city-option {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: black;
+}
+
+.city-option:hover {
+  background-color: #f5f5f5;
+}
+
+/* Cities List */
+.cities-container {
+  margin-bottom: 30px;
+}
+
+.cities-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.cities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.city-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid #e0e0e0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.city-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.city-header h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.remove-city-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.remove-city-btn:hover {
+  background: #cc0000;
+}
+
+.city-time {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 5px;
+}
+
+.city-date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Time Slider */
+.time-slider-container {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.time-slider-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.slider-wrapper {
+  position: relative;
+}
+
+.time-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.time-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.time-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.selected-hour-display {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+/* Time Grid */
+.time-grid-container {
+  margin-bottom: 30px;
+  overflow-x: auto;
+}
+
+.time-grid-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.time-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.city-time-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: fit-content;
+}
+
+.city-label {
+  min-width: 120px;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.hours-grid {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.hour-slot {
+  min-width: 50px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.hour-slot:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hour-slot.working {
+  background-color: #4caf50;
+  color: white;
+}
+
+.hour-slot.waking {
+  background-color: #ffeb3b;
+  color: #333;
+}
+
+.hour-slot.sleeping {
+  background-color: #f44336;
+  color: white;
+}
+
+.hour-slot.selected {
+  border-color: #667eea;
+  border-width: 3px;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.hour-label {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.city-hour {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Copy Button */
+.copy-button-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.copy-meeting-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.copy-meeting-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+}
+
+.copy-meeting-btn:active {
+  transform: translateY(0);
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 2px solid #ddd;
+}
+
+.legend-color.working {
+  background-color: #4caf50;
+}
+
+.legend-color.waking {
+  background-color: #ffeb3b;
+}
+
+.legend-color.sleeping {
+  background-color: #f44336;
+}
+
+.legend-item span {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .meeting-planner {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .meeting-planner h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .cities-list {
+    grid-template-columns: 1fr;
+  }
+
+  .city-time-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .city-label {
+    margin-bottom: 10px;
+  }
+
+  .hours-grid {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .hour-slot {
+    min-width: 40px;
+    height: 50px;
+  }
+
+  .legend {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .slider-labels {
+    font-size: 0.8rem;
+  }
+
+  .selected-hour-display {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .meeting-planner {
+    padding: 15px;
+  }
+
+  .meeting-planner h1 {
+    font-size: 1.5rem;
+  }
+
+  .city-time {
+    font-size: 1.5rem;
+  }
+
+  .hour-slot {
+    min-width: 35px;
+    height: 45px;
+  }
+
+  .hour-label {
+    font-size: 0.6rem;
+  }
+
+  .city-hour {
+    font-size: 0.9rem;
+  }
+}
